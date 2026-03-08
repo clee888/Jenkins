@@ -2,10 +2,13 @@ groovy
 
 pipeline {
   agent any
+  
   stages {
     stage('check service') {
       steps {
-        powershell 'get-services -name bits'
+        powershell """
+        get-services -name bits*
+        """
       }
     }
   }
