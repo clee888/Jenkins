@@ -1,14 +1,11 @@
+groovy
+
 pipeline {
   agent any
   stages {
-    stage('version') {
+    stage('check service') {
       steps {
-        sh 'pwsh --version'
-      }
-    }
-    stage('hello') {
-      steps {
-        sh 'pwsh hello.ps1'
+        powershell 'get-services -name bits'
       }
     }
   }
