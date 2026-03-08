@@ -5,7 +5,7 @@ pipeline {
     stage('check service') {
       steps {
         powershell """
-        get-services -name bits*
+        get-service -name bits*
         """
       }
     }
