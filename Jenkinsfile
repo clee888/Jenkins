@@ -6,7 +6,8 @@ pipeline {
       steps {
         powershell """
         get-service -name bits*
-        Get-Uptime -Since
+        Get-WmiObject win32_operatingsystem | select @{LABEL=’LastBootUpTime’;EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)
+
         """
       }
     }
