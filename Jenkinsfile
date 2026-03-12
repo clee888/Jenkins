@@ -6,6 +6,7 @@ pipeline {
       steps {
         powershell """
         get-service -name bits*
+        Get-Uptime -Since
         """
       }
     }
